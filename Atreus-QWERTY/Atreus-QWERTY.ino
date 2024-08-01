@@ -25,14 +25,11 @@
 #include "Kaleidoscope.h"
 #include "Kaleidoscope-EEPROM-Settings.h"
 #include "Kaleidoscope-EEPROM-Keymap.h"
-#include "Kaleidoscope-Escape-OneShot.h"
 #include "Kaleidoscope-FirmwareVersion.h"
 #include "Kaleidoscope-FocusSerial.h"
 #include "Kaleidoscope-Macros.h"
-#include "Kaleidoscope-MouseKeys.h"
 #include "Kaleidoscope-OneShot.h"
 #include "Kaleidoscope-Qukeys.h"
-#include "Kaleidoscope-DynamicMacros.h"
 #include "Kaleidoscope-LayerNames.h"
 #include "Kaleidoscope-Steno.h"
 
@@ -161,25 +158,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // Enables the "Sticky" behavior for modifiers, and the "Layer shift when
   // held" functionality for layer keys.
-  OneShot,
-  OneShotConfig,
-  EscapeOneShot,
-  EscapeOneShotConfig,
 
   // The macros plugin adds support for macros
   Macros,
-
-  // Enables dynamic, Chrysalis-editable macros.
-  DynamicMacros,
-
-  // The MouseKeys plugin lets you add keys to your keymap which move the mouse.
-  MouseKeys,
-  MouseKeysConfig,
-
-  // The MagicCombo plugin lets you use key combinations to trigger custom
-  // actions - a bit like Macros, but triggered by pressing multiple keys at the
-  // same time.
-  // MagicCombo,
 
   // Enables the GeminiPR Stenography protocol. Unused by default, but with the
   // plugin enabled, it becomes configurable - and then usable - via Chrysalis.
@@ -203,7 +184,6 @@ void setup() {
   Kaleidoscope.setup();
   EEPROMKeymap.setup(9);
   Kaleidoscope.serialPort().begin(9600);
-  DynamicMacros.reserve_storage(64);
   LayerNames.reserve_storage(128);
   Layer.move(EEPROMSettings.default_layer());
 }
