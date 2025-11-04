@@ -1,6 +1,4 @@
 # Atreus-Firmware
-My personal custom firmware for the Keyboardio Atreus. Drops SpaceCadet in favour of steno support, swaps QWERTY out for Colemak.
+My personal custom firmware for the Keyboardio Atreus.
 
-Definitely a niche within a niche, but if you want to copy bits and pieces, be my guest.
-
-Also adding a qwerty version due to demand 
+To install use the https://chrysalis.keyboard.io/ firmware updater with the factory reset option ticked. installing directly from the arduino IDE can be tempermental.
