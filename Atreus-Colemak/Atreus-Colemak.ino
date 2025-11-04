@@ -18,7 +18,7 @@
  */
 
 #ifndef BUILD_INFORMATION
-#define KALEIDOSCOPE_FIRMWARE_VERSION "COLEMAK + STENO"
+#define KALEIDOSCOPE_FIRMWARE_VERSION "COLEMAK"
 #define BUILD_INFORMATION "locally built on " __DATE__ " at " __TIME__
 #endif
 
@@ -31,7 +31,6 @@
 #include "Kaleidoscope-OneShot.h"
 #include "Kaleidoscope-Qukeys.h"
 #include "Kaleidoscope-LayerNames.h"
-#include "Kaleidoscope-Steno.h"
 
 
 #define MO(n) ShiftToLayer(n)
@@ -58,8 +57,7 @@ enum {
 enum {
   COLEMAK,
   SYM,
-  CTRL,
-  STENO
+  CTRL
 };
 
 // clang-format off
@@ -79,10 +77,10 @@ KEYMAPS(
 
   [SYM] = KEYMAP_STACKED
   (
-       TG(CTRL)        ,MoveToLayer(STENO) ,Key_UpArrow   ,Key_Dollar           ,Key_Exclamation
+       TG(CTRL)        ,Key_LeftShift      ,Key_UpArrow   ,Key_Dollar           ,Key_Exclamation
       ,Key_LeftParen   ,Key_LeftArrow      ,Key_DownArrow ,Key_RightArrow       ,Key_RightParen
       ,Key_LeftBracket ,Key_RightBracket   ,Key_Hash      ,Key_LeftCurlyBracket ,Key_RightCurlyBracket ,Key_Question
-      ,___             ,___                ,___           ,___                  ,___                   ,___
+      ,___             ,___                ,___           ,___                  ,Key_Delete            ,___
 
                 ,Key_Caret  ,Key_7 ,Key_8      ,Key_9 ,Key_Backspace
                 ,Key_Slash  ,Key_4 ,Key_5      ,Key_6 ,Key_Star
@@ -101,20 +99,7 @@ KEYMAPS(
             ,Key_VolDown  ,Key_F4  ,Key_F5          ,Key_F6         ,Key_F11
       ,XXX  ,XXX          ,Key_F1  ,Key_F2          ,Key_F3         ,Key_F12
       ,___  ,___          ,XXX     ,Key_PrintScreen ,Key_ScrollLock ,Consumer_PlaySlashPause
-   ),
-
-  [STENO] = KEYMAP_STACKED
-  (
-       MoveToLayer(COLEMAK) ,XXX   ,XXX    ,XXX    ,XXX
-      ,S(S1)                ,S(TL) ,S(PL)  ,S(HL)  ,S(ST1)
-      ,S(S2)                ,S(KL) ,S(WL)  ,S(RL)  ,S(ST2) ,S(ST3)
-      ,MoveToLayer(COLEMAK) ,XXX   ,XXX    ,XXX    ,S(A)   ,S(O)
-
-              ,XXX   ,XXX   ,XXX    ,XXX   ,XXX
-              ,S(FR) ,S(PR) ,S(LR)  ,S(TR) ,S(DR)
-      ,S(ST4) ,S(RR) ,S(BR) ,S(GR)  ,S(SR) ,S(ZR)
-      ,S(E)   ,S(U)  ,XXX   ,XXX    ,XXX   ,XXX
-  )
+   )
 )
 // clang-format on
 
@@ -162,11 +147,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
   OneShotConfig,
 
   // The macros plugin adds support for macros
-  Macros,
-
-  // Enables the GeminiPR Stenography protocol. Unused by default, but with the
-  // plugin enabled, it becomes configurable - and then usable - via Chrysalis.
-  GeminiPR);
+  Macros
+  );
 
 const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
   if (keyToggledOn(event.state)) {
@@ -184,8 +166,7 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
 
 void setup() {
   Kaleidoscope.setup();
-  EEPROMKeymap.setup(9);
-  Kaleidoscope.serialPort().begin(9600);
+  EEPROMKeymap.setup;(3);
   LayerNames.reserve_storage(128);
   Layer.move(EEPROMSettings.default_layer());
 }
