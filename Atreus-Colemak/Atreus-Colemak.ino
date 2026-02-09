@@ -77,7 +77,7 @@ KEYMAPS(
 
   [SYM] = KEYMAP_STACKED
   (
-       TG(CTRL)        ,Key_LeftShift      ,Key_UpArrow   ,Key_Dollar           ,Key_Exclamation
+       TG(CTRL)        ,Key_LeftShift      ,Key_UpArrow   ,Key_PageDown         ,Key_PageUp
       ,Key_LeftParen   ,Key_LeftArrow      ,Key_DownArrow ,Key_RightArrow       ,Key_RightParen
       ,Key_LeftBracket ,Key_RightBracket   ,Key_Hash      ,Key_LeftCurlyBracket ,Key_RightCurlyBracket ,Key_Question
       ,___             ,___                ,___           ,___                  ,Key_Delete            ,___
