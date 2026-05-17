@@ -66,7 +66,7 @@ KEYMAPS(
   (
        Key_Q   ,Key_W   ,Key_F       ,Key_P         ,Key_G
       ,Key_A   ,Key_R   ,Key_S       ,Key_T         ,Key_D
-      ,Key_Z   ,Key_X   ,Key_C       ,Key_V         ,Key_B, Key_Backtick
+      ,Key_Z   ,Key_X   ,Key_C       ,Key_V         ,Key_B         ,Key_Backtick
       ,Key_Esc ,Key_Tab ,Key_LeftGui ,Key_LeftShift ,Key_Backspace ,Key_LeftControl
 
                      ,Key_J     ,Key_L      ,Key_U     ,Key_Y      ,Key_Semicolon
@@ -92,8 +92,8 @@ KEYMAPS(
   (
        Key_Insert            ,Key_Home      ,Key_UpArrow   ,Key_End         ,Key_PageUp
       ,Key_Delete            ,Key_LeftArrow ,Key_DownArrow ,Key_RightArrow  ,Key_PageDown
-      ,XXX                   ,XXX           ,XXX ,XXX       ,XXX            ,XXX
-      ,MoveToLayer(COLEMAK)  ,___           ,___ ,___     ,___              ,___
+      ,XXX                   ,XXX           ,XXX           ,XXX             ,XXX          ,XXX
+      ,MoveToLayer(COLEMAK)  ,___           ,___           ,___             ,___          ,___
 
             ,Key_VolUp    ,Key_F7  ,Key_F8          ,Key_F9         ,Key_F10
             ,Key_VolDown  ,Key_F4  ,Key_F5          ,Key_F6         ,Key_F11
